@@ -118,11 +118,8 @@ def main():
         st.header("⚙️ Settings")
         
         # API Key input
-        api_key = st.text_input(
-            "Groq API Key",
-            type="password",
-            help="Enter your Groq Cloud API key. Get one from https://console.groq.com/keys"
-        )
+        api_key = st.secrets.get("GROQ_API_KEY")
+            
         
         if api_key:
             st.session_state['groq_api_key'] = api_key
